@@ -1,0 +1,136 @@
+
+.error-dismiss-btn {
+  background: #f3f4f6;
+  color: #374151;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.error-dismiss-btn:hover {
+  background: #e5e7eb;
+}
+
+.error-modal-footer {
+  padding: 16px 20px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+
+.error-help {
+  background: #f9fafb;
+  border-left: 3px solid #3b82f6;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 16px;
+}
+
+.error-help strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.error-help ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.error-help li {
+  margin: 4px 0;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+
+.error-modal-body {
+  padding: 20px;
+}
+
+.error-modal-body p {
+  margin: 0 0 16px 0;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.error-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.error-close:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+
+.error-icon {
+  font-size: 24px;
+}
+
+
+
+.error-modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.error-modal-header h3 {
+  flex: 1;
+  margin: 0;
+  font-size: 18px;
+  color: #111827;
+}
+
+
+.error-modal {
+  background: white;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+.error-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@media (max-width: 768px) {
+  .error-modal {
+    width: 95%;
+    max-width: none;
+  }
+} 

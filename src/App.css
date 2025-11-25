@@ -1,4 +1,4 @@
-* {
+ * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,6 +22,7 @@ header {
 main {
   flex: 1;
   display: flex;
+  position: relative;
   max-height: calc(100% - 142px);
 }
 
@@ -35,81 +36,6 @@ footer {
   font-size: 0.9rem;
 }
 
-
-.chat-history {
-  width: 250px;
-  background-color: #4b4b4b;
-  border-right: 1px solid #6b6b6b;
-  padding: 1rem;
-  overflow: hidden;
-}
-
-.chat-history h2 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-
-.chat-history ul {
-  list-style: none;
-  padding: 0;
-  overflow: auto;
-  height: calc(100% - 55px);
-  scrollbar-width: none;
-}
-
-.chat-history li {
-  width: 100%;
-  padding: 0.5rem;
-  border-bottom: 1px solid #989898;
-  cursor: pointer;
-}
-
-.chat-history-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 20px;
-}
-
-.chat-history-header h2 {
-  font-size: 1.5rem;
-  color: #ffffff;
-}
-li button{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-}
-.selected button{
-  background-color:rgba(0,0,0,0.3) ;
-}
-
-
-.chat-history button:hover {
-  background-color: #7a7a7a;
-}
-
-
-.chat-container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-
-
-.chat-box {
-  display: flex;
-  flex-direction: column;
-  background-color: #545353;
-  overflow-y: scroll;
-  position: relative;
-  height: calc(100vh - 192px);
- 
-}
-
 .chat-messages {
   position: relative;
   padding: 1rem 2rem;
@@ -117,28 +43,6 @@ li button{
   margin: 10px;
   width: 90%;
   border-radius: 25px;
-}
-
-.editeMsg{
-  display: flex;
-}
-
-.editeMsg textarea{
-  border: none;
-  flex: 1;
-  background: transparent;;
-}
-
-.edit-btn {
-  position: absolute;
-  right: 13px;
-  bottom: 10px;
-  background: transparent;
-}
-
-.edit-btn:hover{
-  border: none;
-  text-shadow: 0px 2px 10px #cccccc80;
 }
 .chat-messages.assistant{
   background-color: #212020;
@@ -150,67 +54,46 @@ li button{
 }
 
 
-
-
 .fileIcon{
   margin-right: 5px;
 }
 .fileIcon +span{
   display: inline-block;
 }
+/*
+li button{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+.selected button{
+  background-color:rgba(0,0,0,0.3) ;
+}
 
-.user-input {
+
+
+
+
+
+
+
+
+
+
+.editeMsg{
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background-color: #2d2d2d;
-  padding: 0.75rem;
-  border-top: 1px solid #444;
-  border-radius: 10px;
 }
 
-.user-input input[type="text"] {
+.editeMsg textarea{
+  border: none;
   flex: 1;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  border: none;
-  font-size: 1rem;
-  background-color: #444;
-  color: #fff;
-}
-
-.user-input input[type="text"]::placeholder {
-  color: #bbb;
-}
-
-.user-input button {
-  padding: 0.75rem 1.2rem;
-  background-color: #5c5c5c;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
+  background: transparent;;
 }
 
 
-.user-input button:hover:not(:disabled) {
-  background-color: #007BFF;
-}
-.user-input button[type="button"]:hover {
-  background-color: #a77028;
-}
 
-.user-input button[type="button"] {
-  background-color: #884221;
-}
-.user-input button:disabled {
-  background-color: #888;
-  cursor: not-allowed;
-}
+
 
 
 .inputImgcontainer {
@@ -231,10 +114,6 @@ li button{
   border-radius: 6px;
 }
 
-.msg-image{
-  width: 42%;
-  border-radius: 20px;
-}
 
 .close-imgBtn{
   position: absolute;
@@ -252,15 +131,6 @@ li button{
   font-size: 0.8rem;
 }
 
-.loading {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border-top: 3px solid #ccc;
-  border-right: 3px solid transparent;
-  animation: spin 0.6s linear infinite;
-}
 
 
 
@@ -282,47 +152,102 @@ li button{
     width: 250px;
   }
 
-  .user-input {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-areas: 
-    "label input input input input"
-    "upload upload submit submit submit";
-}
-
-.user-input label {
-    grid-area: label;
-}
-
-.user-input input[type="text"] {
-    grid-area: input;
-}
-
-.user-input button[type="button"].upload {
-    grid-area: upload;
-}
-
-.user-input button[type="button"].submit {
-    grid-area: submit;
-}
+  
 
   
 }
-/* @media screen and (max-width:558px) {
-  .chat-history{
-    width: 10px;
+
+------
+
+
+
+.error-action-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.error-action-btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+----
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+
+.file-icon {
+  font-size: 20px;
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .error-modal {
+    width: 95%;
+    max-width: none;
   }
 
-  .chat-history:hover{
-    width: 250px;
+  .input-controls {
+    flex-wrap: wrap;
   }
 
-  .user-input button{
-    width: 40%;
+  .upload-btn,
+  .send-btn {
+    padding: 8px 16px;
+    font-size: 13px;
   }
 
-  .inputImgcontainer label{
-    display: none;
+  .chat-history {
+    position: fixed;
+    left: -100%;
+    transition: left 0.3s;
   }
-  
+
+  .chat-history.open {
+    left: 0;
+  }
 } */

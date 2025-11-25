@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import "./App.css";
 
-import Footer from "./componenets/Footer";
-import Header from "./componenets/Header";
 import ChatHistory from "./componenets/ChatHistory";
 import ChatBox from "./componenets/ChatBox";
+import Footer from "./componenets/Layout/Footer";
+import Header from "./componenets/Layout/Header";
 
 const App = () => {
+  const [showHistory , setShowHistory] = useState(false)
   return (
     <Provider store={store}>
-      <Header />
+      <Header setShowHistory={setShowHistory}/>
       <main>
-        <ChatHistory />
+        <ChatHistory showHistory={showHistory} />
         <ChatBox />
       </main>
       <Footer />

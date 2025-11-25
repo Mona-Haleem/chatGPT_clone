@@ -22,4 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-Secret.js
+
+.env
+.env.local
+.env.production
+
